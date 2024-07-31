@@ -33,25 +33,7 @@ function renderTodoList(){
     
         console.log(todoListHTML) 
     });
-    // for(let i = 0; i < todoList.length; i++){
-    //     const todoObject = todoList[i];
-    //     // const name = todoObject.name;
-    //     // const date = todoObject.date;
-    //     const {name, date} = todoObject
-    //     const html = `
-    //         <div>${name}</div>
-    //         <div>${date}</div>
-    //         <button 
-    //             class="delete-todo-button"
-    //             onclick="
-    //                 todoList.splice(${i},1);
-    //                     renderTodoList();
-    //             "
-    //         >Delete</button>
-    //     `;
-    //     todoListHTML += html; 
-    // }
-    // console.log(todoListHTML)
+    
     document.querySelector('.js-todoList').innerHTML = todoListHTML;
 
     document.querySelectorAll('.js-delete-todo-button').forEach((deleteButton, index) =>{
