@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <button 
+    onclick="Add()">
+        Update
+    </button>
+        <button onclick="
+        if (quantity>0) {
+            quantity--;
+            console.log(`Remove ${quantity}`);
+        } else {
+            alert('Not enough items in the cart to Remove')
+        }
+    ">Remove</button>
+
+    <button onclick="
+        quantity=0;
+        console.log(`reset:${quantity}`)
+    ">Reset</button>
+
+    <script>
+        let quantity = 0;
+        function Add(){
+            if(quantity+1 > 10 ){
+                alert('The cart is full')
+            }else{
+                quantity++;
+                console.log(`Update ${quantity}`)
+            }
+        }
+        console.log(document.querySelector('button'));
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+
+    <style>
+        .button-subcribe{
+            border: none;
+            border-radius: 50px;
+            padding: 10px 15px;
+            background-color: black;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .is-subcribed{
+            background-color: #dcdcdc;
+        }
+        .cost-input{
+            padding: 10px;
+        }
+        .button-calculate{
+            background-color: #f05b92;
+            padding: 12px;
+            color: white;
+            border-color: #f05c92;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <button class="js-subcribe button-subcribe" onclick="handleSubcribe()">Subcribe</button>
+
+    <p>Amazon shipping calculator</p>
+    <p>Orders under $40 = + $10 shipping</p>
+    <p>Orders over $40 = Free shipping</p>
+    <input placeholder="Cost of order" class="js-cost-input cost-input" onkeydown="handleKeyDown(event)"/>
+    <button class="button-calculate" onclick="handleCal()">Calculate</button>
+    <p class="cost-ship"></p>
+
+ <script>
+
+    function handleSubcribe(){
+        const ButtonElement = document.querySelector('.js-subcribe');
+        if(ButtonElement.innerText === 'Subcribe'){
+            ButtonElement.innerHTML = 'Subcribed';
+            ButtonElement.classList.add('is-subcribed');
+        }else{
+            ButtonElement.innerHTML = 'Subcribe'
+            ButtonElement.classList.remove('is-subcribed');
+        }
+    }
+
+    function handleCal(){
+        const ElementInput = document.querySelector('.js-cost-input');
+        let cost = Number(ElementInput.value);
+        if(cost < 40){
+            cost += 10;
+        }
+        document.querySelector('.cost-ship').innerHTML = `ship: $${cost}`
+    }
+
+    function handleKeyDown(event){
+        // console.log(event)
+        if(event.key === 'Enter'){
+            handleCal();
+        }
+    }
+
+
+   </script>
+</body>
+</html>
